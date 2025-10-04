@@ -36,7 +36,6 @@ async def test_get_nonexistent_recipe(test_db, client: TestClient):
 @pytest.mark.asyncio
 async def test_create_and_get_recipe(test_db, client: TestClient):
     """Тест создания и получения рецепта."""
-    # Создаем рецепт
     recipe_data = {
         "title": "Test Recipe 2",
         "cooking_time": 25,
@@ -47,7 +46,6 @@ async def test_create_and_get_recipe(test_db, client: TestClient):
     assert create_response.status_code == 200
     created_recipe = create_response.json()
 
-    # Получаем созданный рецепт
     get_response = client.get(f"/recipes/{created_recipe['id']}")
     assert get_response.status_code == 200
     retrieved_recipe = get_response.json()

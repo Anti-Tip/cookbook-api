@@ -65,7 +65,6 @@ async def get_recipe(recipe_id: int, db: AsyncSession = Depends(get_db)) -> Reci
     if recipe is None:
         raise HTTPException(status_code=404, detail="Recipe not found")
 
-    # Исправление для mypy - явное приведение типа
     recipe.views += 1  # type: ignore
     await db.commit()
 
