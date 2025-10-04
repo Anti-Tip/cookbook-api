@@ -52,9 +52,7 @@ async def get_recipes(db: AsyncSession = Depends(get_db)) -> List[RecipeOut]:
     summary="Получить рецепт по ID",
     description="Возвращает рецепт по указанному ID.",
 )
-async def get_recipe(
-    recipe_id: int, db: AsyncSession = Depends(get_db)
-) -> RecipeOut:
+async def get_recipe(recipe_id: int, db: AsyncSession = Depends(get_db)) -> RecipeOut:
     """
     Получение рецепта по его ID.
 
@@ -79,9 +77,7 @@ async def get_recipe(
     summary="Создать новый рецепт",
     description="Создает новый рецепт и возвращает его.",
 )
-async def create_recipe(
-    recipe: RecipeCreate, db: AsyncSession = Depends(get_db)
-) -> RecipeOut:
+async def create_recipe(recipe: RecipeCreate, db: AsyncSession = Depends(get_db)) -> RecipeOut:
     """
     Создание нового рецепта.
 
